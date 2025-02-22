@@ -4,6 +4,7 @@
 name: 画爱心Windows版
 
 on:
+# 表示手动触发
   workflow_dispatch:
 
 permissions:
@@ -11,6 +12,7 @@ permissions:
 
 jobs:
   pyinstaller-build:
+  # 申请了一个windows虚拟机来执行任务
     runs-on: windows-latest
     steps:
       - name: Create Executable
@@ -18,5 +20,7 @@ jobs:
         with:
           python_ver: '3.12'
           spec: 'love_heart.py'
+          # 包的名字
           upload_exe_with_name: 'love_heart'
+          # 打包成一个文件/可执行文件的名字/可窗口化运行
           options: --onefile, --name "love_heart", --windowed, 
